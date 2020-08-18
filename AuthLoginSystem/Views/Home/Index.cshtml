@@ -1,0 +1,17 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using AuthLoginSystem.Areas.Identity.Data
+
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome @UserManager.GetUserName(User) </h1>
+    </div>
+}
